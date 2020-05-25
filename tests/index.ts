@@ -1,0 +1,1 @@
+const hoge = 1;
