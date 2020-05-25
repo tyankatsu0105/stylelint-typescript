@@ -1,0 +1,27 @@
+{
+  "name": "stylelint-typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "typecheck": "tsc --project ./tsconfig.build.json --noEmit",
+    "build": "tsc --project ./tsconfig.build.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tyankatsu0105/stylelint-typescript.git"
+  },
+  "keywords": [],
+  "author": "tyankatsu <frips.ryilsufupe+dev@gmail.com> (https://tyankatsu.netlify.com/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tyankatsu0105/stylelint-typescript/issues"
+  },
+  "homepage": "https://github.com/tyankatsu0105/stylelint-typescript#readme",
+  "devDependencies": {
+    "prettier": "^2.0.5",
+    "ts-node": "^8.10.1",
+    "typescript": "^3.9.3"
+  }
+}
