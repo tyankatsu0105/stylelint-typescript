@@ -13,13 +13,15 @@
   },
   "license": "MIT",
   "author": "tyankatsu <frips.ryilsufupe+dev@gmail.com> (https://tyankatsu.netlify.com/)",
-  "main": "index.js",
+  "main": "dist/lib/index.js",
   "scripts": {
     "build": "tsc --project ./tsconfig.build.json",
     "jest": "jest",
+    "release:prepare": "shipjs prepare",
+    "release:trigger": "shipjs trigger",
+    "sandbox": "stylelint --config './sandbox/.stylelintrc.js' --fix ./sandbox/style.scss",
     "test": "run-s build jest",
-    "typecheck": "tsc --project ./tsconfig.build.json --noEmit",
-    "sandbox": "stylelint --config './sandbox/.stylelintrc.js' --fix ./sandbox/style.scss"
+    "typecheck": "tsc --project ./tsconfig.build.json --noEmit"
   },
   "dependencies": {
     "stylelint": "^13.5.0"
@@ -37,6 +39,7 @@
     "jest-preset-stylelint": "^3.0.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.0.5",
+    "shipjs": "0.19.0",
     "ts-jest": "^26.0.0",
     "ts-node": "^8.10.1",
     "typescript": "^3.9.3"
