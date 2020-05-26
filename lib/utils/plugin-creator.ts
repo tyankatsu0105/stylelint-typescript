@@ -1,11 +1,8 @@
-import { createPlugin, Plugin } from "stylelint";
+import { createPlugin } from "stylelint";
 import { namespace } from "./namespace";
+import { Rules } from "../types";
 
-type Rules = {
-  [k: string]: Plugin;
-};
-
-export const pluginCreator = (pluginName: string, rules: Rules) =>
+export const pluginCreator = (rules: Rules) =>
   Object.keys(rules).map((ruleName) =>
-    createPlugin(namespace(ruleName, pluginName), rules[ruleName])
+    createPlugin(namespace(ruleName), rules[ruleName])
   );

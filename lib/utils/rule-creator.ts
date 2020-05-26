@@ -1,11 +1,11 @@
-import { Plugin } from "stylelint";
 import { namespace } from "./namespace";
+import { Rule } from "../types";
 
 type Messages<TMessages extends string> = {
   [key in TMessages]: string;
 };
 
-export const RuleCreator = (pluginName: string) =>
+export const RuleCreator = () =>
   function createRule<TMessages extends string>({
     name,
     messages,
@@ -13,12 +13,9 @@ export const RuleCreator = (pluginName: string) =>
   }: {
     name: string;
     messages: Messages<TMessages>;
-    rule: Plugin & {
-      ruleName?: string;
-      messages?: Messages<TMessages>;
-    };
+    rule: Rule<Messages<TMessages>>;
   }) {
-    rule.ruleName = namespace(name, pluginName);
+    rule.ruleName = namespace(name);
     rule.messages = messages;
     return rule;
   };

@@ -1,6 +1,6 @@
 // This file has been automatically generated, in order to update it's content execute "npm run update"
-import hoge from "./rules/hoge";
+import noHoge from "./rules/no-hoge";
 
 export const rules = {
-  hoge: hoge,
+  "no-hoge": noHoge,
 };

@@ -1,14 +1,14 @@
 import { utils } from "stylelint";
 import { createRule, namespace } from "../utils";
 
-const ruleName = namespace("hoge");
+const ruleName = namespace("no-hoge");
 
 const messages = {
-  expected: "aaa",
+  expected: "Can't use .hoge",
 };
 
 export = createRule({
-  name: "hoge",
+  name: "no-hoge",
   messages,
   rule(actual) {
     return (root, result) => {
@@ -18,16 +18,16 @@ export = createRule({
         return;
       }
 
-      root.walkDecls(/^background/, (decl) => {
-        const { value } = decl;
+      root.walkRules((atRule) => {
+        const { selector } = atRule;
 
-        if (!/data:image.*base64/.test(value)) {
+        if (!/^\.hoge/.test(selector)) {
           return;
         }
 
         utils.report({
           message: messages.expected,
-          node: decl,
+          node: atRule,
           result,
           ruleName,
         });

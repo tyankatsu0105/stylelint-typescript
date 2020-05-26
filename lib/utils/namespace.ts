@@ -1,4 +1,4 @@
 import { PLUGIN_NAME } from "../utils";
+import { NamespaceCreator } from "./namespace-creator";
 
-export const namespace = (ruleName: string, pluginName: string = PLUGIN_NAME) =>
-  `${pluginName}/${ruleName}`;
+export const namespace = NamespaceCreator(PLUGIN_NAME);
