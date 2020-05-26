@@ -14,14 +14,29 @@
   "license": "MIT",
   "author": "tyankatsu <frips.ryilsufupe+dev@gmail.com> (https://tyankatsu.netlify.com/)",
   "main": "dist/lib/index.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc --project ./tsconfig.build.json",
+    "precommit": "lint-staged",
+    "commit": "git-cz",
     "jest": "jest",
+    "lint-staged": "lint-staged",
     "release:prepare": "shipjs prepare",
     "release:trigger": "shipjs trigger",
     "sandbox": "stylelint --config './sandbox/.stylelintrc.js' --fix ./sandbox/style.scss",
     "test": "run-s build jest",
     "typecheck": "tsc --project ./tsconfig.build.json --noEmit"
+  },
+  "lint-staged": {
+    "*.md": [
+      "prettier --write"
+    ],
+    "*.ts": [
+      "prettier --write",
+      "eslint --fix"
+    ]
   },
   "dependencies": {
     "stylelint": "^13.5.0"
@@ -32,11 +47,14 @@
     "@types/stylelint": "^9.10.1",
     "@typescript-eslint/eslint-plugin": "^3.0.0",
     "@typescript-eslint/parser": "^3.0.0",
+    "commitizen": "^4.1.2",
+    "cz-conventional-changelog": "^3.2.0",
     "eslint": "^7.1.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.3",
     "jest": "^26.0.1",
     "jest-preset-stylelint": "^3.0.0",
+    "lint-staged": "^10.2.6",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.0.5",
     "shipjs": "0.19.0",
