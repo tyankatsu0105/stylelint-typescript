@@ -21,12 +21,11 @@
     "build": "tsc --project ./tsconfig.build.json",
     "precommit": "lint-staged",
     "commit": "git-cz",
-    "jest": "jest",
     "lint-staged": "lint-staged",
     "release:prepare": "shipjs prepare",
     "release:trigger": "shipjs trigger",
     "sandbox": "stylelint --config './sandbox/.stylelintrc.js' --fix ./sandbox/style.scss",
-    "test": "run-s build jest",
+    "test": "jest",
     "typecheck": "tsc --project ./tsconfig.build.json --noEmit"
   },
   "lint-staged": {
@@ -55,7 +54,6 @@
     "jest": "^26.0.1",
     "jest-preset-stylelint": "^3.0.0",
     "lint-staged": "^10.2.6",
-    "npm-run-all": "^4.1.5",
     "prettier": "^2.0.5",
     "shipjs": "0.19.0",
     "ts-jest": "^26.0.0",
